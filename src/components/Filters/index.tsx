@@ -28,16 +28,16 @@ export default function Filters({ onChangeName, nameFilter }: FiltersProps) {
             Type
             <ul className={styles.filter}>
               <li>
-                <button>Normal</button>
+                <button className={styles.filterButton}>Normal</button>
               </li>
               <li>
-                <button>Reverse</button>
+                <button className={styles.filterButton}>Reverse</button>
               </li>
               <li>
-                <button>Holographique</button>
+                <button className={styles.filterButton}>Holographique</button>
               </li>
               <li>
-                <button>Secrète</button>
+                <button className={styles.filterButton}>Secrète</button>
               </li>
             </ul>
           </li>
@@ -45,16 +45,16 @@ export default function Filters({ onChangeName, nameFilter }: FiltersProps) {
             Rareté
             <ul className={styles.filter}>
               <li>
-                <button>Normal</button>
+                <button className={styles.filterButton}>Normal</button>
               </li>
               <li>
-                <button>Reverse</button>
+                <button className={styles.filterButton}>Reverse</button>
               </li>
               <li>
-                <button>Holographique</button>
+                <button className={styles.filterButton}>Holographique</button>
               </li>
               <li>
-                <button>Secrète</button>
+                <button className={styles.filterButton}>Secrète</button>
               </li>
             </ul>
           </li>

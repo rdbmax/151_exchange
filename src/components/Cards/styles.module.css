@@ -1,5 +1,3 @@
-@import "open-props/style";
-
 .cardsSection {
   grid-column: span 9 / span 9;
 }
