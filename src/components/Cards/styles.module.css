@@ -1,0 +1,11 @@
+@import "open-props/style";
+
+.cardsSection {
+  grid-column: span 9 / span 9;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--size-2);
+}

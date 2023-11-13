@@ -1,4 +1,6 @@
-type Card = {
+import { Key } from 'react'
+
+export type Card = {
   name: String;
   type: "normal" | "reverse" | "holo" | "secret";
   rarity:
@@ -10,10 +12,10 @@ type Card = {
     | "illustration rare"
     | "illustration spéciale rare"
     | "hyper rare";
-  id: String;
+  id: Key;
 };
 
-const all_cards_flat: Card[] = [
+export const all_cards_flat: Card[] = [
   {
     id: "1",
     type: "normal",
@@ -2175,5 +2177,3 @@ const all_cards_flat: Card[] = [
     rarity: "hyper rare",
   },
 ];
-
-console.log(all_cards_flat.length);

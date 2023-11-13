@@ -1,0 +1,35 @@
+@import "open-props/style";
+
+.filtersGrid {
+  grid-column: span 3 / span 3;
+}
+
+.filtersSticky {
+  position: sticky;
+  top: var(--size-4);
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: var(--size-2);
+}
+
+.input {
+  display: block;
+  margin-bottom: var(--size-3);
+}
+
+.filters {
+  padding-left: var(--size-4);
+}
+
+.filter {
+  color: var(--gray-5);
+  margin-bottom: var(--size-3);
+}
+
+.filter button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
