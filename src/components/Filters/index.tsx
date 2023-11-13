@@ -2,14 +2,30 @@
 
 import { type ChangeEvent } from "react";
 
+import { Rarity, Type } from "../../db/all_cards";
 import styles from "./styles.module.css";
 
 type FiltersProps = {
   onChangeName: (event: ChangeEvent<HTMLInputElement>) => void;
+  setFilterType: (filterButton: Type) => void;
+  typeFilter: Type | undefined;
+  setFilterRarity: (filterButton: Rarity) => void;
+  rarityFilter: Rarity | undefined;
   nameFilter: string;
+  cardsCount: number;
+  removeFilter: VoidFunction;
 };
 
-export default function Filters({ onChangeName, nameFilter }: FiltersProps) {
+export default function Filters({
+  onChangeName,
+  nameFilter,
+  setFilterType,
+  typeFilter,
+  setFilterRarity,
+  rarityFilter,
+  cardsCount,
+  removeFilter,
+}: FiltersProps) {
   return (
     <section className={styles.filtersGrid}>
       <div className={styles.filtersSticky}>
@@ -27,38 +43,44 @@ export default function Filters({ onChangeName, nameFilter }: FiltersProps) {
           <li>
             Type
             <ul className={styles.filter}>
-              <li>
-                <button className={styles.filterButton}>Normal</button>
-              </li>
-              <li>
-                <button className={styles.filterButton}>Reverse</button>
-              </li>
-              <li>
-                <button className={styles.filterButton}>Holographique</button>
-              </li>
-              <li>
-                <button className={styles.filterButton}>Secrète</button>
-              </li>
+              {Object.values(Type).map((type) => (
+                <li key={type}>
+                  <button
+                    onClick={() => setFilterType(type)}
+                    className={`${styles.filterButton} ${
+                      typeFilter === type ? styles.activeFilterButton : ""
+                    }`}
+                  >
+                    {type}
+                  </button>
+                </li>
+              ))}
             </ul>
           </li>
           <li>
             Rareté
             <ul className={styles.filter}>
-              <li>
-                <button className={styles.filterButton}>Normal</button>
-              </li>
-              <li>
-                <button className={styles.filterButton}>Reverse</button>
-              </li>
-              <li>
-                <button className={styles.filterButton}>Holographique</button>
-              </li>
-              <li>
-                <button className={styles.filterButton}>Secrète</button>
-              </li>
+              {Object.values(Rarity).map((rarity) => (
+                <li key={rarity}>
+                  <button
+                    onClick={() => setFilterRarity(rarity)}
+                    className={`${styles.filterButton} ${
+                      rarityFilter === rarity ? styles.activeFilterButton : ""
+                    }`}
+                  >
+                    {rarity}
+                  </button>
+                </li>
+              ))}
             </ul>
           </li>
         </ul>
+        <span className={styles.cardsCount}>{cardsCount} cartes</span>
+        {(typeFilter || rarityFilter) && (
+          <button onClick={removeFilter} className={styles.removeFilter}>
+            Retirer le filtre
+          </button>
+        )}
       </div>
     </section>
   );

@@ -202,6 +202,9 @@ import card201 from "./sv03pt5-fr-201-2x.jpg";
 import card202 from "./sv03pt5-fr-202-2x.jpg";
 import card203 from "./sv03pt5-fr-203-2x.jpg";
 import card204 from "./sv03pt5-fr-204-2x.jpg";
+import card205 from "./sv03pt5-fr-205-2x.jpg";
+import card206 from "./sv03pt5-fr-206-2x.jpg";
+import card207 from "./sv03pt5-fr-207-2x.jpg";
 
 const cards = [
   card1,
@@ -408,6 +411,9 @@ const cards = [
   card202,
   card203,
   card204,
+  card205,
+  card206,
+  card207,
 ];
 
 export default cards;

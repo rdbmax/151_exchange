@@ -11,22 +11,37 @@ type CardsProps = {
 };
 
 export default function Cards({ allCards }: CardsProps) {
-  const { nameFilter, setNameFilter, applyFilters } = useCardsListFilters();
+  const {
+    nameFilter,
+    setNameFilter,
+    applyFilters,
+    setRarityFilter,
+    rarityFilter,
+    setTypeFilter,
+    typeFilter,
+    removeFilter,
+  } = useCardsListFilters();
+
+  const cards = applyFilters(allCards);
 
   return [
     <section key="cards" className={styles.cardsSection}>
       <div className={styles.cardsGrid}>
-        {applyFilters(allCards)
-          .filter(({ type }) => type !== "reverse")
-          .map((card, index) => (
-            <Card key={card.id} {...{ card, index }} />
-          ))}
+        {cards.map((card, index) => (
+          <Card key={card.id} {...{ card, index }} />
+        ))}
       </div>
     </section>,
     <Filters
       key="filters"
       onChangeName={setNameFilter}
       nameFilter={nameFilter}
+      setFilterRarity={setRarityFilter}
+      rarityFilter={rarityFilter}
+      setFilterType={setTypeFilter}
+      typeFilter={typeFilter}
+      cardsCount={cards.length}
+      removeFilter={removeFilter}
     />,
   ];
 }
