@@ -1,0 +1,44 @@
+.roadmapButton {
+  height: fit-content;
+  margin-left: var(--size-4);
+  padding: var(--size-1);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-6);
+  font-size: var(--font-size-0);
+}
+
+.modal {
+  position: fixed;
+  z-index: 1300;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  background-image: var(--gradient-23);
+  padding: var(--size-6);
+  border-radius: var(--radius-2);
+  filter: saturate(0.3);
+}
+
+.roadmapList {
+  padding-top: var(--size-4);
+  padding-left: var(--size-5)
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.backdrop {
+  z-index: -1;
+  position: fixed;
+  inset: 0;
+  background-color: hsl(var(--gray-12-hsl) / 85%);
+  -webkit-tap-highlight-color: transparent;
+}

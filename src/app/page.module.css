@@ -10,8 +10,13 @@
   gap: var(--size-4);
 }
 
-.title {
+.leftSideHeader {
+  display: flex;
+  justify-content: space-between;
   grid-column: span 9 / span 9;
-  text-align: right;
+  align-items: center;
+}
+
+.title {
   padding: var(--size-4) 0;
 }
