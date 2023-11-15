@@ -1,0 +1,23 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--size-4);
+}
+
+.leftSideHeader {
+  display: flex;
+  justify-content: space-between;
+  grid-column: span 9 / span 9;
+  align-items: center;
+}
+
+.rightSideHeader {
+  display: flex;
+  justify-content: left;
+  grid-column: 10 / 13;
+  align-items: center;
+}
+
+.title {
+  padding: var(--size-4) 0;
+}

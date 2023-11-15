@@ -1,13 +1,12 @@
 "use client";
-import { Modal } from "@mui/base/Modal";
 import { forwardRef, useState } from "react";
+import { Modal } from "@mui/base/Modal";
 
-import styles from "./styles.module.css";
+import styles from "./roadmap.module.css";
 
 const Backdrop = forwardRef<HTMLDivElement, { open?: boolean }>(
   (props, ref) => {
-    // https://github.com/mui/material-ui/issues/32882
-    // @ts-ignore
+    // @ts-ignore https://github.com/mui/material-ui/issues/32882
     const { open, ownerState, ...other } = props;
     return <div ref={ref} {...other} className={styles.backdrop} />;
   }
@@ -43,16 +42,26 @@ export default function RoadMap() {
           <li>afficher les details d&apos;une carte</li>
           <li>version mobile</li>
           <li className={styles.done}>nom de domaine (www.151-exchange.com)</li>
-          <li>authentification utilisateur</li>
-          <li>base de donnée</li>
+          <li className={styles.done}>authentification utilisateur</li>
+          <li className={styles.done}>base de donnée</li>
           <li>
             fonctionnalitées utilisateur (U) connecté
             <ul>
               <li>carte en double que l&apos;U détient</li>
               <li>carte en double que l&apos;U souhaite</li>
-              <li>cartes que l&apos;U n&apos;a pas et détenu par une autre personne</li>
-              <li>cartes que l&apos;U souhaite et détenu par une autre personne</li>
+              <li>
+                U peut générer une URL publique qui affiche les carte qu&apos;il
+                détient ou souhaite
+              </li>
+              <li>
+                cartes que l&apos;U n&apos;a pas et détenu par une autre
+                personne
+              </li>
+              <li>
+                cartes que l&apos;U souhaite et détenu par une autre personne
+              </li>
               <li>mise en contact entre U</li>
+              <li>U peut rendre sa collection de double public via une url</li>
             </ul>
           </li>
         </ul>

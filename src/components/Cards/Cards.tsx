@@ -1,10 +1,12 @@
 "use client";
 
-import styles from "./styles.module.css";
 import { type Card as CardType } from "../../db/all_cards";
-import Card from "../Card";
-import Filters from "../Filters";
+import Card from "../Card/Card";
+import Filters from "../Filters/Filters";
+import RoadMap from "../RoadMap/RoadMap";
 import useCardsListFilters from "../../hooks/useCardsListFilters";
+
+import styles from "./cards.module.css";
 
 type CardsProps = {
   allCards: CardType[];
@@ -32,16 +34,20 @@ export default function Cards({ allCards }: CardsProps) {
         ))}
       </div>
     </section>,
-    <Filters
-      key="filters"
-      onChangeName={setNameFilter}
-      nameFilter={nameFilter}
-      setFilterRarity={setRarityFilter}
-      rarityFilter={rarityFilter}
-      setFilterType={setTypeFilter}
-      typeFilter={typeFilter}
-      cardsCount={cards.length}
-      removeFilter={removeFilter}
-    />,
+    <aside key="aside" className={styles.filtersGrid}>
+      <div className={styles.filtersSticky}>
+        <Filters
+          onChangeName={setNameFilter}
+          nameFilter={nameFilter}
+          setFilterRarity={setRarityFilter}
+          rarityFilter={rarityFilter}
+          setFilterType={setTypeFilter}
+          typeFilter={typeFilter}
+          cardsCount={cards.length}
+          removeFilter={removeFilter}
+        />
+      </div>
+      <RoadMap />
+    </aside>,
   ];
 }

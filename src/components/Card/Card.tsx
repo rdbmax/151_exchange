@@ -1,8 +1,10 @@
 'use client';
 import Image from "next/image";
-import styles from "./styles.module.css";
+
 import { Card } from "../../db/all_cards";
 import cards from '../../cards'
+
+import styles from "./card.module.css";
 
 type CardProps = { card: Card; index: number };
 

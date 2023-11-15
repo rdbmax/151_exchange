@@ -2,7 +2,7 @@
 
 import { useState, type ChangeEvent } from "react";
 
-import { type Card, type Rarity, Type } from "../db/all_cards";
+import { type Card, type Rarity, Type } from "@DB/all_cards";
 
 type CardsListFilters = {
   nameFilter: string;

@@ -1,6 +1,5 @@
 .roadmapButton {
   height: fit-content;
-  margin-left: var(--size-4);
   padding: var(--size-1);
   background-color: transparent;
   border: none;
@@ -8,6 +7,9 @@
   text-transform: uppercase;
   font-weight: var(--font-weight-6);
   font-size: var(--font-size-0);
+
+  position: fixed;
+  bottom: var(--size-4);
 }
 
 .modal {
@@ -28,7 +30,7 @@
 
 .roadmapList {
   padding-top: var(--size-4);
-  padding-left: var(--size-5)
+  padding-left: var(--size-5);
 }
 
 .done {

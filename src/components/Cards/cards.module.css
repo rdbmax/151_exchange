@@ -7,3 +7,12 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--size-2);
 }
+
+.filtersGrid {
+  grid-column: span 3 / span 3;
+}
+
+.filtersSticky {
+  position: sticky;
+  top: var(--size-4);
+}
