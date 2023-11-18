@@ -5,6 +5,7 @@ import GoogleProvider from "next-auth/providers/google";
 import prisma from "../../lib/prisma";
 
 export const authOptions: NextAuthOptions = {
+  // @ts-ignore because of the /types/next-auth.d.ts
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -15,18 +16,30 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET as string,
 
   session: {
-    strategy: "jwt",
+    strategy: "database",
     maxAge: 1 * 24 * 60 * 60, // ** 1 days
   },
+  // CHECK HOBBY PLAN FN EXECUTION
+  // MAYBE INCREASING MAX_AGE WILL DECREASE VERCEL FN USAGE
 
-  // callbacks: {
-  //   async session({ session, token }) {
-  //     if (session.user) {
-  //       // ** Add custom params to user in session which are added in `jwt()` callback via `token` parameter
-  //       // token.cardsOwned = user.cardsOwned;
-  //     }
 
-  //     return session;
-  //   },
-  // },
+  callbacks: {
+    // async jwt({ token, account, profile }) {
+    //   // Persist the OAuth access_token and or the user id to the token right after signin
+    //   if (account) {
+    //     token.cardOwned = account.userId
+    //     token.id = profile.id
+    //   }
+    //   return token
+    // },
+    async session({ session, user }) {
+      if (session.user) {
+        // ** Add custom params to user in session which are added in `jwt()` callback via `token` parameter
+        session.user.cardsOwned = user.cardsOwned
+        session.user.id = user.id
+      }
+
+      return await session;
+    },
+  },
 };

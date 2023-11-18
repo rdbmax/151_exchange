@@ -2,6 +2,7 @@
 import { forwardRef, useState } from "react";
 import { Modal } from "@mui/base/Modal";
 
+import Button from "@Components/Button/Button";
 import styles from "./roadmap.module.css";
 
 const Backdrop = forwardRef<HTMLDivElement, { open?: boolean }>(
@@ -17,13 +18,9 @@ export default function RoadMap() {
   const [isOpen, setIsOpen] = useState(false);
 
   return [
-    <button
-      key="triggerButton"
-      onClick={() => setIsOpen(true)}
-      className={styles.roadmapButton}
-    >
+    <Button key="triggerButton" onClick={() => setIsOpen(true)} active={isOpen}>
       Roadmap
-    </button>,
+    </Button>,
     <Modal
       key="modal"
       open={isOpen}
@@ -32,7 +29,7 @@ export default function RoadMap() {
       slots={{ backdrop: Backdrop }}
     >
       <div className={styles.modalContent}>
-        <h2>Roadmap</h2>
+        <h2>Roadmap <span className={styles.legend}>U = Utilisateur</span></h2>
         <ul className={styles.roadmapList}>
           <li className={styles.done}>
             Ajouter les illustrations des 3 dernieres cartes
@@ -44,26 +41,10 @@ export default function RoadMap() {
           <li className={styles.done}>nom de domaine (www.151-exchange.com)</li>
           <li className={styles.done}>authentification utilisateur</li>
           <li className={styles.done}>base de donnée</li>
-          <li>
-            fonctionnalitées utilisateur (U) connecté
-            <ul>
-              <li>carte en double que l&apos;U détient</li>
-              <li>carte en double que l&apos;U souhaite</li>
-              <li>
-                U peut générer une URL publique qui affiche les carte qu&apos;il
-                détient ou souhaite
-              </li>
-              <li>
-                cartes que l&apos;U n&apos;a pas et détenu par une autre
-                personne
-              </li>
-              <li>
-                cartes que l&apos;U souhaite et détenu par une autre personne
-              </li>
-              <li>mise en contact entre U</li>
-              <li>U peut rendre sa collection de double public via une url</li>
-            </ul>
-          </li>
+          <li className={styles.done}>U peut définir une liste de ses cartes en double</li>
+          <li>U peut définir une liste de cartes souhaitées</li>
+          <li>U peut rendre sa collection de double public via une url</li>
+          <li>U peut rendre sa liste de souhaits public via une url</li>
         </ul>
       </div>
     </Modal>,

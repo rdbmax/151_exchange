@@ -1,21 +1,62 @@
-import { getServerSession } from "next-auth/next";
+"use client";
+import { useSession } from "next-auth/react";
 
-import Login from "../Login/login";
-import { authOptions } from "../../utils/authOptions";
+import Login from "@Components/Login/login";
+import Button from "@Components/Button/Button";
 
 import styles from "./header.module.css";
 
-export default async function Header() {
-  const session = await getServerSession(authOptions);
+type HeaderProps = {
+  onStartSelectionMode: VoidFunction;
+  isSelectionMode: boolean;
+  onValidateDoubles: VoidFunction;
+  onStopSelectionMode: VoidFunction;
+};
 
-  if (process.env.NODE_ENV === "development") {
-    console.log({ session });
-  }
+export default function Header({
+  onStartSelectionMode,
+  isSelectionMode,
+  onValidateDoubles,
+  onStopSelectionMode,
+}: HeaderProps) {
+  const { status } = useSession();
 
   return (
     <header key="header" className={styles.header}>
       <div className={styles.leftSideHeader}>
-        <div />
+        <div>
+          {status === "authenticated" &&
+            (isSelectionMode ? (
+              <>
+                <Button
+                  withBorder
+                  onClick={() => {
+                    onValidateDoubles();
+                  }}
+                  className={styles.buttonWithMargin}
+                >
+                  Valider mes doubles
+                </Button>
+                <Button
+                  withBorder
+                  onClick={() => {
+                    onStopSelectionMode();
+                  }}
+                  className={styles.buttonWithMargin}
+                >
+                  Annuler
+                </Button>
+              </>
+            ) : (
+              <Button
+                withBorder
+                onClick={() => onStartSelectionMode()}
+                className={styles.buttonWithMargin}
+              >
+                Modifier mes doubles
+              </Button>
+            ))}
+        </div>
         <h1 className={styles.title}>151_Exchange</h1>
       </div>
 

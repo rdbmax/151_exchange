@@ -1,7 +1,7 @@
 "use client";
 import { type ChangeEvent } from "react";
 
-import { Rarity, Type } from "../../db/all_cards";
+import { Rarity, Type } from "@DB/all_cards";
 
 import styles from "./filters.module.css";
 
@@ -14,6 +14,8 @@ type FiltersProps = {
   nameFilter: string;
   cardsCount: number;
   removeFilter: VoidFunction;
+  isSelectionMode: Boolean;
+  isMyDoublesFilter: Boolean;
 };
 
 export default function Filters({
@@ -25,6 +27,8 @@ export default function Filters({
   rarityFilter,
   cardsCount,
   removeFilter,
+  isSelectionMode,
+  isMyDoublesFilter,
 }: FiltersProps) {
   return (
     <>
@@ -42,18 +46,22 @@ export default function Filters({
         <li>
           Type
           <ul className={styles.filter}>
-            {Object.values(Type).map((type) => (
-              <li key={type}>
-                <button
-                  onClick={() => setFilterType(type)}
-                  className={`${styles.filterButton} ${
-                    typeFilter === type ? styles.activeFilterButton : ""
-                  }`}
-                >
-                  {type}
-                </button>
-              </li>
-            ))}
+            {Object.values(Type)
+              .filter(
+                isSelectionMode ? (type) => type !== Type.reverse : () => true
+              )
+              .map((type) => (
+                <li key={type}>
+                  <button
+                    onClick={() => setFilterType(type)}
+                    className={`${styles.filterButton} ${
+                      typeFilter === type ? styles.activeFilterButton : ""
+                    }`}
+                  >
+                    {type}
+                  </button>
+                </li>
+              ))}
           </ul>
         </li>
         <li>
@@ -75,7 +83,7 @@ export default function Filters({
         </li>
       </ul>
       <span className={styles.cardsCount}>{cardsCount} cartes</span>
-      {(typeFilter || rarityFilter) && (
+      {(typeFilter || rarityFilter || isMyDoublesFilter) && (
         <button onClick={removeFilter} className={styles.removeFilter}>
           Retirer le filtre
         </button>

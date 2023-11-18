@@ -19,10 +19,11 @@ export enum Type {
 }
 
 export type Card = {
-  name: String;
+  name: string;
   type: Type;
   rarity: Rarity;
   id: Key;
+  hasReverseVersion?: true;
 };
 
 export const all_cards_flat: Card[] = [
@@ -31,6 +32,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Bulbizarre",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "1_r",
@@ -43,6 +45,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Herbizarre",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "2_r",
@@ -61,6 +64,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Salamèche",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "4_r",
@@ -73,6 +77,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Reptincel",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "5_r",
@@ -91,6 +96,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Carapuce",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "7_r",
@@ -103,6 +109,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Carabaffe",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "8_r",
@@ -121,6 +128,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Chenipan",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "10_r",
@@ -133,6 +141,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Chrysacier",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "11_r",
@@ -145,6 +154,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Papilusion",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "12_r",
@@ -157,6 +167,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Aspicot",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "13_r",
@@ -169,6 +180,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Coconfort",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "14_r",
@@ -181,6 +193,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Dardargnan",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "15_r",
@@ -193,6 +206,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Roucool",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "16_r",
@@ -205,6 +219,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Roucoups",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "17_r",
@@ -217,6 +232,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Roucarnage",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "18_r",
@@ -229,6 +245,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Rattata",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "19_r",
@@ -241,6 +258,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Rattatac",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "20_r",
@@ -253,6 +271,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Piafabec",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "21_r",
@@ -265,6 +284,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Rapasdepic",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "22_r",
@@ -277,6 +297,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Abo",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "23_r",
@@ -295,6 +316,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Pikachu",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "25_r",
@@ -307,6 +329,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Raichu",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "26_r",
@@ -319,6 +342,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Sabelette",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "27_r",
@@ -331,6 +355,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Sablaireau",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "28_r",
@@ -343,6 +368,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Nidoran♀",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "29_r",
@@ -355,6 +381,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Nidorina",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "30_r",
@@ -367,6 +394,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Nidoqueen",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "31_r",
@@ -379,6 +407,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Nidoran♂",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "32_r",
@@ -391,6 +420,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Nidorino",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "33_r",
@@ -403,6 +433,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Nidoking",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "34_r",
@@ -415,6 +446,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Mélofée",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "35_r",
@@ -427,6 +459,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Mélodelfe",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "36_r",
@@ -439,6 +472,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Goupix",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "37_r",
@@ -457,6 +491,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Rondoudou",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "39_r",
@@ -475,6 +510,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Nosferapti",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "41_r",
@@ -487,6 +523,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Nosferalto",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "42_r",
@@ -499,6 +536,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Mystherbe",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "43_r",
@@ -511,6 +549,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Ortide",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "44_r",
@@ -523,6 +562,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Rafflesia",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "45_r",
@@ -535,6 +575,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Paras",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "46_r",
@@ -547,6 +588,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Parasect",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "47_r",
@@ -559,6 +601,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Mimitoss",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "48_r",
@@ -571,6 +614,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Aéromite",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "49_r",
@@ -583,6 +627,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Taupiqueur",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "50_r",
@@ -595,6 +640,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Triopikeur",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "51_r",
@@ -607,6 +653,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Miaouss",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "52_r",
@@ -619,6 +666,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Persian",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "53_r",
@@ -631,6 +679,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Psykokwak",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "54_r",
@@ -643,6 +692,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Akwakwak",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "55_r",
@@ -655,6 +705,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Férosinge",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "56_r",
@@ -667,6 +718,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Colossinge",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "57_r",
@@ -679,6 +731,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Caninos",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "58_r",
@@ -691,6 +744,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Arcanin",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "59_r",
@@ -703,6 +757,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Ptitard",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "60_r",
@@ -715,6 +770,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Têtarte",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "61_r",
@@ -727,6 +783,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Tartard",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "62_r",
@@ -739,6 +796,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Abra",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "63_r",
@@ -751,6 +809,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Kadabra",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "64_r",
@@ -769,6 +828,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Machoc",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "66_r",
@@ -781,6 +841,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Machopeur",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "67_r",
@@ -793,6 +854,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Mackogneur",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "68_r",
@@ -805,6 +867,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Chétiflor",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "69_r",
@@ -817,6 +880,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Boustiflor",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "70_r",
@@ -829,6 +893,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Empiflor",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "71_r",
@@ -841,6 +906,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Tentacool",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "72_r",
@@ -853,6 +919,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Tentacruel",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "73_r",
@@ -865,6 +932,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Racaillou",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "74_r",
@@ -877,6 +945,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Gravalanch",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "75_r",
@@ -895,6 +964,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Ponyta",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "77_r",
@@ -907,6 +977,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Galopa",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "78_r",
@@ -919,6 +990,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Ramoloss",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "79_r",
@@ -931,6 +1003,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Flagadoss",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "80_r",
@@ -943,6 +1016,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Magnéti",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "81_r",
@@ -955,6 +1029,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Magnéton",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "82_r",
@@ -967,6 +1042,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Canarticho",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "83_r",
@@ -979,6 +1055,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Doduo",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "84_r",
@@ -991,6 +1068,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Dodrio",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "85_r",
@@ -1003,6 +1081,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Otaria",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "86_r",
@@ -1015,6 +1094,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Lamantine",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "87_r",
@@ -1027,6 +1107,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Tadmorv",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "88_r",
@@ -1039,6 +1120,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Grotadmorv",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "89_r",
@@ -1051,6 +1133,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Kokiyas",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "90_r",
@@ -1063,6 +1146,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Crustabri",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "91_r",
@@ -1075,6 +1159,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Fantominus",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "92_r",
@@ -1087,6 +1172,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Spectrum",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "93_r",
@@ -1099,6 +1185,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Ectoplasma",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "94_r",
@@ -1111,6 +1198,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Onix",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "95_r",
@@ -1123,6 +1211,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Soporifik",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "96_r",
@@ -1135,6 +1224,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Hypnomade",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "97_r",
@@ -1147,6 +1237,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Krabby",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "98_r",
@@ -1159,6 +1250,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Krabboss",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "99_r",
@@ -1171,6 +1263,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Voltorbe",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "100_r",
@@ -1183,6 +1276,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Électrode",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "101_r",
@@ -1195,6 +1289,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Noeunoeuf",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "102_r",
@@ -1207,6 +1302,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Noadkoko",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "103_r",
@@ -1219,6 +1315,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Osselait",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "104_r",
@@ -1231,6 +1328,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Ossatueur",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "105_r",
@@ -1243,6 +1341,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Kicklee",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "106_r",
@@ -1255,6 +1354,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Tygnon",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "107_r",
@@ -1267,6 +1367,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Excelangue",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "108_r",
@@ -1279,6 +1380,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Smogo",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "109_r",
@@ -1291,6 +1393,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Smogogo",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "110_r",
@@ -1303,6 +1406,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Rhinocorne",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "111_r",
@@ -1315,6 +1419,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Rhinoféros",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "112_r",
@@ -1327,6 +1432,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Leveinard",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "113_r",
@@ -1339,6 +1445,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Saquedeneu",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "114_r",
@@ -1357,6 +1464,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Hypotrempe",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "116_r",
@@ -1369,6 +1477,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Hypocéan",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "117_r",
@@ -1381,6 +1490,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Poissirène",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "118_r",
@@ -1393,6 +1503,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Poissoroy",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "119_r",
@@ -1405,6 +1516,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Stari",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "120_r",
@@ -1417,6 +1529,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Staross",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "121_r",
@@ -1429,6 +1542,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "M. Mime",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "122_r",
@@ -1441,6 +1555,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Insécateur",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "123_r",
@@ -1459,6 +1574,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Élektek",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "125_r",
@@ -1471,6 +1587,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Magmar",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "126_r",
@@ -1483,6 +1600,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Scarabrute",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "127_r",
@@ -1495,6 +1613,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Tauros",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "128_r",
@@ -1507,6 +1626,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Magicarpe",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "129_r",
@@ -1519,6 +1639,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Léviator",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "130_r",
@@ -1531,6 +1652,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Lokhlass",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "131_r",
@@ -1543,6 +1665,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Métamorph",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "132_r",
@@ -1555,6 +1678,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Évoli",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "133_r",
@@ -1567,6 +1691,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Aquali",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "134_r",
@@ -1579,6 +1704,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Voltali",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "135_r",
@@ -1591,6 +1717,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Pyroli",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "136_r",
@@ -1603,6 +1730,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Porygon",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "137_r",
@@ -1615,6 +1743,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Amonita",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "138_r",
@@ -1627,6 +1756,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Amonistar",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "139_r",
@@ -1639,6 +1769,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Kabuto",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "140_r",
@@ -1651,6 +1782,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Kabutops",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "141_r",
@@ -1663,6 +1795,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Ptéra",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "142_r",
@@ -1675,6 +1808,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Ronflex",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "143_r",
@@ -1687,6 +1821,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Artikodin",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "144_r",
@@ -1705,6 +1840,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Sulfura",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "146_r",
@@ -1717,6 +1853,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Minidraco",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "147_r",
@@ -1729,6 +1866,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Draco",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "148_r",
@@ -1741,6 +1879,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Dracolosse",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "149_r",
@@ -1753,6 +1892,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Mewtwo",
     rarity: Rarity.rare,
+    hasReverseVersion: true,
   },
   {
     id: "150_r",
@@ -1771,6 +1911,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Fossile Dôme Ancien",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "152_r",
@@ -1783,6 +1924,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Fossile Nautile Ancien",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "153_r",
@@ -1795,6 +1937,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Vieil Ambre Ancien",
     rarity: Rarity.commune,
+    hasReverseVersion: true,
   },
   {
     id: "154_r",
@@ -1807,6 +1950,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Gros Ballon",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "155_r",
@@ -1819,6 +1963,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Transfert de Léo",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "156_r",
@@ -1831,6 +1976,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Piste Cyclable",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "157_r",
@@ -1843,6 +1989,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Aide de Nina",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "158_r",
@@ -1855,6 +2002,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Stickers Énergie",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "159_r",
@@ -1867,6 +2015,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Invitation d’Erika",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "160_r",
@@ -1879,6 +2028,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Charisme de Giovanni",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "161_r",
@@ -1891,6 +2041,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Pince Attrapeuse",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "162_r",
@@ -1903,6 +2054,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Restes",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "163_r",
@@ -1915,6 +2067,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Lunettes de Protection",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "164_r",
@@ -1927,6 +2080,7 @@ export const all_cards_flat: Card[] = [
     type: Type.normal,
     name: "Bandeau Rigide",
     rarity: Rarity.peuCommune,
+    hasReverseVersion: true,
   },
   {
     id: "165_r",

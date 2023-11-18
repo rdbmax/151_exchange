@@ -1,0 +1,21 @@
+.button {
+  height: fit-content;
+  padding: var(--size-1);
+  background-color: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-6);
+  font-size: var(--font-size-0);
+}
+
+.withBorder {
+  border: 1px solid white;
+}
+
+.withoutBorder {
+  border: none;
+}
+
+.isActive {
+  text-decoration: overline;
+}
