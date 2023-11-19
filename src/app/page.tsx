@@ -1,20 +1,12 @@
 "use client";
-import { useState } from "react";
 import { all_cards_flat } from "@DB/all_cards";
-import Cards from "@Components/Cards/Cards";
+import MainView from "@Components/MainView/MainView";
 import Header from "@Components/Header/Header";
 import useCardsSelection from "@Hooks/useCardsSelection";
-
-// import prisma from "../../lib/prisma";
 
 import styles from "./page.module.css";
 
 export default function Home() {
-  // if (process.env.NODE_ENV === "development") {
-  //   const users = await prisma.user.findMany();
-  //   console.log({ users });
-  // }
-
   const {
     userCards,
     userCardsSelection,
@@ -34,7 +26,7 @@ export default function Home() {
       onStopSelectionMode={onStopSelectionMode}
     />,
     <main key="main" className={styles.main}>
-      <Cards
+      <MainView
         isSelectionMode={isSelectionMode}
         allCards={all_cards_flat}
         userCards={userCards}

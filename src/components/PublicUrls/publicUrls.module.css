@@ -1,0 +1,14 @@
+.title {
+  margin-bottom: var(--size-4);
+}
+
+.publicUrl {
+  padding: var(--size-2);
+  display: inline-block;
+  background-color: var(--gray-10);
+}
+
+.generateButton {
+  padding: var(--size-1);
+  cursor: pointer;
+}

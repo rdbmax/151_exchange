@@ -1,5 +1,5 @@
 "use client";
-import * as R from 'ramda'
+import * as R from "ramda";
 import { useState, type ChangeEvent } from "react";
 import { useSession } from "next-auth/react";
 
@@ -20,16 +20,24 @@ export type CardsListFilters = {
 
 type UseCardsListFilters = (params: {
   isSelectionMode: Boolean;
+  cardsOwned?: string[];
+  isMyDoublesFilterDefault?: boolean;
 }) => CardsListFilters;
 
 const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
   isSelectionMode,
+  cardsOwned,
+  isMyDoublesFilterDefault = false,
 }) {
   const { data: session } = useSession();
   const [nameFilter, setName] = useState<string>("");
   const [rarityFilter, setRarity] = useState<Rarity>();
   const [typeFilter, setType] = useState<Type>();
-  const [isMyDoublesFilter, setIsMyDoublesFilter] = useState<boolean>(false);
+  const [isMyDoublesFilter, setIsMyDoublesFilter] = useState<boolean>(
+    isMyDoublesFilterDefault
+  );
+
+  const doublesIdList = cardsOwned || session?.user.cardsOwned || [];
 
   if (isSelectionMode && typeFilter === Type.reverse) {
     setType(undefined);
@@ -46,7 +54,7 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
   const applyFilterByRarity = ({ rarity }: Card) => rarity === rarityFilter;
   const applyFilterBType = ({ type }: Card) => type === typeFilter;
   const applyFilterMyDoubles = ({ id }: Card) =>
-    (session?.user.cardsOwned || []).includes(id as string);
+    doublesIdList.includes(id as string);
 
   const removeReverseSuffix = (id: string) => String(id).slice(0, -2);
 
@@ -67,7 +75,7 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
           : card
       );
 
-      return R.uniqBy(R.prop('id'), allDoubles)
+      return R.uniqBy(R.prop("id"), allDoubles);
     }
 
     // otherwise it remove all reverse

@@ -1,9 +1,10 @@
 "use client";
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes } from "react";
 import { useSession } from "next-auth/react";
 
 import Filters from "@Components/Filters/Filters";
 import RoadMap from "@Components/RoadMap/RoadMap";
+import PublicUrls from "@Components/PublicUrls/PublicUrls";
 import Button from "@Components/Button/Button";
 import { type CardsListFilters } from "@Hooks/useCardsListFilters";
 
@@ -15,7 +16,11 @@ type CardsProps = {
   cardsListFilters: CardsListFilters;
 } & HTMLAttributes<HTMLElement>;
 
-export default function Cards({ isSelectionMode, cardsCount, cardsListFilters }: CardsProps) {
+export default function Cards({
+  isSelectionMode,
+  cardsCount,
+  cardsListFilters,
+}: CardsProps) {
   const {
     nameFilter,
     setNameFilter,
@@ -48,7 +53,12 @@ export default function Cards({ isSelectionMode, cardsCount, cardsListFilters }:
       </div>
       <div className={styles.fixedAsideButtons}>
         {sessionStatus === "authenticated" && (
-          <Button active={isMyDoublesFilter} onClick={displayMyDoubles}>Mes cartes doubles</Button>
+          <>
+            <PublicUrls />
+            <Button active={isMyDoublesFilter} onClick={displayMyDoubles}>
+              Mes cartes doubles
+            </Button>
+          </>
         )}
         <RoadMap />
       </div>

@@ -36,6 +36,7 @@ export const authOptions: NextAuthOptions = {
       if (session.user) {
         // ** Add custom params to user in session which are added in `jwt()` callback via `token` parameter
         session.user.cardsOwned = user.cardsOwned
+        session.user.doubles_public_url = user.doubles_public_url
         session.user.id = user.id
       }
 
