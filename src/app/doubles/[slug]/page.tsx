@@ -1,7 +1,8 @@
+import { notFound } from "next/navigation";
+
 import { all_cards_flat } from "@DB/all_cards";
 
 import prisma from "../../../../lib/prisma";
-
 import CardsWrapper from "./CardsWrapper";
 import styles from "./doublePage.module.css";
 
@@ -21,7 +22,11 @@ export default async function DoublePage({
     },
   });
 
-  return user.cardsOwned ? (
+  if (!user) {
+    return notFound();
+  }
+
+  return user.cardsOwned.length > 0 ? (
     <>
       <p className={styles.introduction}>
         Un utilisateur vous met à disposition sa liste de carte en double,
@@ -30,6 +35,9 @@ export default async function DoublePage({
       <CardsWrapper userCards={user.cardsOwned} allCards={all_cards_flat} />
     </>
   ) : (
-    <p>404</p>
+    <p>
+      Oups l&apos;utilisateur n&apos;a pas encore renseigné de cartes en
+      doubles.
+    </p>
   );
 }

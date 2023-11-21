@@ -20,4 +20,6 @@
   padding: var(--size-6);
   border-radius: var(--radius-2);
   filter: saturate(0.3);
+  margin: 0 var(--size-4);
+  max-width: 1000px;
 }

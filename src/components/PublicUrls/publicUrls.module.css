@@ -2,6 +2,10 @@
   margin-bottom: var(--size-4);
 }
 
+.explain {
+  font-size: var(--font-size-0);
+}
+
 .publicUrl {
   padding: var(--size-2);
   display: inline-block;
@@ -11,4 +15,39 @@
 .generateButton {
   padding: var(--size-1);
   cursor: pointer;
+}
+
+.sectionUrl {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.clickableTitle {
+  cursor: pointer;
+  font-size: var(--font-size-1);
+}
+
+.chevron {
+  transform: rotate(0deg);
+  display: inline-block;
+  transition: transform 0.2s var(--ease-2);
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+  display: inline-block;
+}
+
+.hr {
+  height: 1px;
+  background-color: var(--gray-5);
+  border: none;
+  margin: var(--size-3) 10px;
+}
+
+.sectionContent {
+  font-size: var(--font-size-0);
 }
