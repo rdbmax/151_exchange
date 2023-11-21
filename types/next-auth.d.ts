@@ -7,13 +7,17 @@ declare module "next-auth" {
     user: {
       cardsOwned: CardsOwned;
       id: string;
-      doubles_public_url: string;
+      desiredCards: string;
+      wishesPublicUrl?: string;
+      doublesPublicUrl?: string;
     } & DefaultSession["user"];
   }
 
   interface User {
     cardsOwned: CardsOwned;
-    doubles_public_url: string;
+    desiredCards: string;
+    wishesPublicUrl?: string;
+    doublesPublicUrl?: string;
     id: string;
   }
 }

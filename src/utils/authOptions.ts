@@ -22,7 +22,6 @@ export const authOptions: NextAuthOptions = {
   // CHECK HOBBY PLAN FN EXECUTION
   // MAYBE INCREASING MAX_AGE WILL DECREASE VERCEL FN USAGE
 
-
   callbacks: {
     // async jwt({ token, account, profile }) {
     //   // Persist the OAuth access_token and or the user id to the token right after signin
@@ -35,9 +34,11 @@ export const authOptions: NextAuthOptions = {
     async session({ session, user }) {
       if (session.user) {
         // ** Add custom params to user in session which are added in `jwt()` callback via `token` parameter
-        session.user.cardsOwned = user.cardsOwned
-        session.user.doubles_public_url = user.doubles_public_url
-        session.user.id = user.id
+        session.user.cardsOwned = user.cardsOwned;
+        session.user.doublesPublicUrl = user.doublesPublicUrl;
+        session.user.desiredCards = user.desiredCards;
+        session.user.wishesPublicUrl = user.wishesPublicUrl;
+        session.user.id = user.id;
       }
 
       return await session;

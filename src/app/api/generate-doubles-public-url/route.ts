@@ -28,7 +28,7 @@ export async function GET() {
     try {
       userUpdated = await prisma.user.update({
         where: { id: session.user.id },
-        data: { doubles_public_url: randomNameForURL },
+        data: { doublesPublicUrl: randomNameForURL },
       });
     } catch (e) {
       console.log("CANNOT UPDATE USER");

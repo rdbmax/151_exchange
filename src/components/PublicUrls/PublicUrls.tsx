@@ -6,7 +6,7 @@ import styles from "./publicUrls.module.css";
 
 export default function PublicUrls() {
   const { data, update: updateSession } = useSession();
-  const doubles_public_url = data?.user.doubles_public_url;
+  const doublesPublicUrl = data?.user.doublesPublicUrl;
 
   const onClickGenerate = () => {
     console.log("generate");
@@ -23,14 +23,14 @@ export default function PublicUrls() {
     <Modal buttonContent="URL Publique">
       <>
         <h2 className={styles.title}>URL Publique</h2>
-        {doubles_public_url ? (
+        {doublesPublicUrl ? (
           <>
             <p>
               Voici l&apos;adresse publique de vos doubles :{" "}
               <a
                 className={styles.publicUrl}
-                href={`https://www.151-exchange.com/doubles/${doubles_public_url}`}
-              >{`https://www.151-exchange.com/doubles/${doubles_public_url}`}</a>
+                href={`https://www.151-exchange.com/doubles/${doublesPublicUrl}`}
+              >{`https://www.151-exchange.com/doubles/${doublesPublicUrl}`}</a>
             </p>
             <p>
               Vos informations personnelles tel que vos nom/prénom

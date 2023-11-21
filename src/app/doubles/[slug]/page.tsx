@@ -14,7 +14,7 @@ export default async function DoublePage({
 }: DoublePageProps) {
   const user = await prisma.user.findUnique({
     where: {
-      doubles_public_url: slug,
+      doublesPublicUrl: slug,
     },
     select: {
       cardsOwned: true,
