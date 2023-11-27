@@ -7,23 +7,56 @@ import styles from "./cards.module.css";
 
 type CardsProps = {
   cards: CardType[];
-  isSelectionMode?: boolean;
   isMyDoublesFilter?: boolean;
+  isMyWishesFilter?: boolean;
   isPublicView?: boolean;
-  userCards: CardsSelection["userCards"];
-  userCardsSelection: CardsSelection["userCardsSelection"];
-  onCheckCard?: CardsSelection["onCheckCard"];
+  doublesSelection: CardsSelection;
+  wishesSelection: CardsSelection;
 };
 
 export default function Cards({
-  isSelectionMode = false,
   isMyDoublesFilter = false,
+  isMyWishesFilter = false,
   cards,
-  userCards,
-  userCardsSelection,
-  onCheckCard = () => {},
   isPublicView = false,
+  doublesSelection,
+  wishesSelection,
 }: CardsProps) {
+  const {
+    isSelectionMode: isDoublesSelectionMode,
+    userCards: userCardsDoubles,
+    userCardsSelection: userCardsDoublesSelection,
+    onCheckCard: onCheckCardAsDouble,
+  } = doublesSelection;
+  const {
+    isSelectionMode: isWishesSelectionMode,
+    userCards: userCardsWishes,
+    userCardsSelection: userCardsWishesSelection,
+    onCheckCard: onCheckCardAsWish,
+  } = wishesSelection;
+
+  const getHasCard = (card: CardType): boolean =>
+    (isMyWishesFilter ? userCardsWishes : userCardsDoubles).includes(
+      card.id as string
+    );
+
+  const getHasReverseCard = (card: CardType): boolean =>
+    (isMyWishesFilter ? userCardsWishes : userCardsDoubles).includes(
+      `${card.id}_r`
+    );
+
+  const getHasCardAsSelection = (card: CardType): boolean =>
+    (isWishesSelectionMode
+      ? userCardsWishesSelection
+      : userCardsDoublesSelection
+    ).includes(card.id as string);
+
+  const getHasReverseCardAsSelection = (card: CardType): boolean =>
+    (isWishesSelectionMode
+      ? userCardsWishesSelection
+      : userCardsDoublesSelection
+    ).includes(`${card.id}_r`);
+
   return (
     <div className={styles.cardsGrid}>
       {cards.map((card, index) => (
@@ -31,19 +64,19 @@ export default function Cards({
           key={`${card.id}_${isMyDoublesFilter}`}
           card={card}
           index={index}
-          isSelectionMode={isSelectionMode}
-          isMyDoublesMode={isMyDoublesFilter || isPublicView}
-          hasCard={userCards.includes(card.id as string)}
+          hasOwningIcons={isMyDoublesFilter || isMyWishesFilter || isPublicView}
+          hasCard={getHasCard(card)}
           {...((card.hasReverseVersion || card.type === "reverse") && {
-            hasReverseCard: userCards.includes(`${card.id}_r`),
+            hasReverseCard: getHasReverseCard(card),
           })}
-          hasCardAsSelection={userCardsSelection.includes(card.id as string)}
+          isSelectionMode={isDoublesSelectionMode || isWishesSelectionMode}
+          hasCardAsSelection={getHasCardAsSelection(card)}
           {...((card.hasReverseVersion || card.type === "reverse") && {
-            hasReverseCardAsSelection: userCardsSelection.includes(
-              `${card.id}_r`
-            ),
+            hasReverseCardAsSelection: getHasReverseCardAsSelection(card),
           })}
-          onCheckCard={onCheckCard}
+          onCheckCard={
+            isWishesSelectionMode ? onCheckCardAsWish : onCheckCardAsDouble
+          }
         />
       ))}
     </div>

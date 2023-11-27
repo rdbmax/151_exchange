@@ -12,16 +12,22 @@ export type CardsSelection = {
   isSelectionMode: boolean;
 };
 
-type UseCardsSelection = (params?: {}) => CardsSelection;
+type UseCardsSelection = (params: {
+  dataSet?: "cardsOwned" | "desiredCards";
+  isPublicView?: boolean;
+}) => CardsSelection;
 
-const useCardsSelection: UseCardsSelection = function useCardsListFilters() {
+const useCardsSelection: UseCardsSelection = function useCardsListFilters({
+  dataSet = "cardsOwned",
+  isPublicView = false,
+}) {
   const { data: session, update: updateSession } = useSession();
   const [isSelectionMode, setIsSelectionMode] = useState<boolean>(false);
   const [userCardsSelection, setCardsOwnedSelection] = useState<string[]>(
-    session?.user?.cardsOwned || []
+    session?.user?.[dataSet] || []
   );
 
-  if (!session) {
+  if (isPublicView || !session) {
     return {
       userCards: [],
       userCardsSelection: [],
@@ -44,39 +50,38 @@ const useCardsSelection: UseCardsSelection = function useCardsListFilters() {
   };
 
   const onValidateSelection = () => {
+    const type = dataSet === "desiredCards" ? "wishes" : "doubles";
     fetch("/api/validate-selection", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userCardsSelection),
+      body: JSON.stringify({ type, list: userCardsSelection }),
     })
       .then(() => updateSession())
       .then(() => {
-        setIsSelectionMode(false)
-        onSyncSelectionWithSession()
+        setIsSelectionMode(false);
+        onSyncSelectionWithSession();
         // TODO Display Snackbar
       });
   };
 
   const onStartSelectionMode = () => {
-    console.log('onStartSelectionMode')
-    onSyncSelectionWithSession()
-    setIsSelectionMode(true)
-  }
-  
+    onSyncSelectionWithSession();
+    setIsSelectionMode(true);
+  };
+
   const onSyncSelectionWithSession = () => {
-    console.log('onSyncSelectionWithSession')
-    setIsSelectionMode(false)
-    setCardsOwnedSelection(session.user.cardsOwned);
+    setIsSelectionMode(false);
+    setCardsOwnedSelection(session.user[dataSet]);
   };
 
   const onStopSelectionMode = () => {
-    onSyncSelectionWithSession()
-  }
+    onSyncSelectionWithSession();
+  };
 
   return {
-    userCards: session.user.cardsOwned,
+    userCards: session.user[dataSet],
     userCardsSelection,
     onCheckCard,
     onValidateSelection,

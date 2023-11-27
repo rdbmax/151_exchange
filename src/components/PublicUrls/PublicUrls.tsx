@@ -38,7 +38,7 @@ export default function PublicUrls() {
         <h2 className={styles.title}>URLs Publique</h2>
         <p className={styles.explain}>
           Vous pouvez partager la liste de vos cartes en double et la liste des
-          cartes qui vous souhaitez acquérir grâce à des pages web publique Ces
+          cartes que vous souhaitez acquérir grâce à des pages web publique. Ces
           pages web ne comprennent aucune de vos informations personnelles. Par
           défaut vous ne disposez pas de ces pages mais vous pouvez les générer
           sur cet écran. Tout le monde a accès à ces pages, les gens savent
@@ -116,6 +116,7 @@ export default function PublicUrls() {
               Voici l&apos;adresse publique de vos souhaits :{" "}
               <a
                 className={styles.publicUrl}
+                target="_blank"
                 href={`https://www.151-exchange.com/souhaits/${wishesPublicUrl}`}
               >{`https://www.151-exchange.com/souhaits/${wishesPublicUrl}`}</a>
             </p>

@@ -8,22 +8,30 @@ import cards from "../../cards";
 import styles from "./card.module.css";
 
 type CardProps = {
+  /** Generic information about card itself */
   card: Card;
+  /** Used to set priority on image lazy loading */
   index: number;
   isSelectionMode?: boolean;
-  isMyDoublesMode?: boolean;
-  onCheckCard: (id: string) => void;
+  /** True to display icons about the user is owning the card */
+  hasOwningIcons: boolean;
+  /** Used to display doubles and wishes */
   hasCard: boolean;
+  /** Used to display doubles and wishes, reverses */
   hasReverseCard?: boolean;
+  /** Used to select doubles and wishes */
   hasCardAsSelection: boolean;
+  /** Used to select doubles and wishes, reverses */
   hasReverseCardAsSelection?: boolean;
+  /** Used to select doubles and wishes */
+  onCheckCard: (id: string) => void;
 };
 
 export default function Card({
   card,
   index,
   isSelectionMode = false,
-  isMyDoublesMode = false,
+  hasOwningIcons,
   onCheckCard,
   hasCard,
   hasReverseCard,
@@ -44,7 +52,7 @@ export default function Card({
         priority={index < 15}
         placeholder="blur"
       />
-      {!isSelectionMode && isMyDoublesMode && (hasCard || hasReverseCard) && (
+      {!isSelectionMode && hasOwningIcons && (hasCard || hasReverseCard) && (
         <div className={styles.cardOwnedContainer}>
           {hasCard && (
             <div className={styles.cardOwned}>

@@ -7,31 +7,20 @@ import useCardsSelection from "@Hooks/useCardsSelection";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const {
-    userCards,
-    userCardsSelection,
-    onCheckCard,
-    onValidateSelection,
-    onStartSelectionMode,
-    onStopSelectionMode,
-    isSelectionMode,
-  } = useCardsSelection();
+  const doublesSelection = useCardsSelection({ dataSet: "cardsOwned" });
+  const wishesSelection = useCardsSelection({ dataSet: "desiredCards" });
 
   return [
     <Header
       key="header"
-      onStartSelectionMode={onStartSelectionMode}
-      isSelectionMode={isSelectionMode}
-      onValidateDoubles={onValidateSelection}
-      onStopSelectionMode={onStopSelectionMode}
+      doublesSelection={doublesSelection}
+      wishesSelection={wishesSelection}
     />,
     <main key="main" className={styles.main}>
       <MainView
-        isSelectionMode={isSelectionMode}
         allCards={all_cards_flat}
-        userCards={userCards}
-        userCardsSelection={userCardsSelection}
-        onCheckCard={onCheckCard}
+        doublesSelection={doublesSelection}
+        wishesSelection={wishesSelection}
       />
     </main>,
   ];

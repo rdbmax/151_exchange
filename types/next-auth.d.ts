@@ -5,19 +5,19 @@ type CardsOwned = string[];
 declare module "next-auth" {
   interface Session {
     user: {
-      cardsOwned: CardsOwned;
       id: string;
-      desiredCards: string;
+      cardsOwned: CardsOwned;
+      desiredCards: CardsOwned;
       wishesPublicUrl?: string;
       doublesPublicUrl?: string;
     } & DefaultSession["user"];
   }
 
   interface User {
+    id: string;
     cardsOwned: CardsOwned;
-    desiredCards: string;
+    desiredCards: CardsOwned;
     wishesPublicUrl?: string;
     doublesPublicUrl?: string;
-    id: string;
   }
 }

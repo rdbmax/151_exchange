@@ -30,7 +30,9 @@ export default function Cards({
     typeFilter,
     removeFilter,
     displayMyDoubles,
+    displayMyWishes,
     isMyDoublesFilter,
+    isMyWishesFilter,
   } = cardsListFilters;
 
   const { status: sessionStatus } = useSession();
@@ -48,7 +50,7 @@ export default function Cards({
           cardsCount={cardsCount}
           removeFilter={removeFilter}
           isSelectionMode={isSelectionMode}
-          isMyDoublesFilter={isMyDoublesFilter}
+          isMyDoublesFilter={isMyDoublesFilter || isMyWishesFilter}
         />
       </div>
       <div className={styles.fixedAsideButtons}>
@@ -57,6 +59,9 @@ export default function Cards({
             <PublicUrls />
             <Button active={isMyDoublesFilter} onClick={displayMyDoubles}>
               Mes cartes doubles
+            </Button>
+            <Button active={isMyWishesFilter} onClick={displayMyWishes}>
+              Mes cartes souhaitées
             </Button>
           </>
         )}

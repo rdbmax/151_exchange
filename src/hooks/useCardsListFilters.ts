@@ -15,19 +15,25 @@ export type CardsListFilters = {
   setTypeFilter: (type: Type) => void;
   removeFilter: VoidFunction;
   displayMyDoubles: VoidFunction;
+  displayMyWishes: VoidFunction;
   isMyDoublesFilter: boolean;
+  isMyWishesFilter: boolean;
 };
 
 type UseCardsListFilters = (params: {
   isSelectionMode: Boolean;
   cardsOwned?: string[];
+  desiredCards?: string[];
   isMyDoublesFilterDefault?: boolean;
+  isMyWishesFilterDefault?: boolean;
 }) => CardsListFilters;
 
 const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
   isSelectionMode,
   cardsOwned,
+  desiredCards,
   isMyDoublesFilterDefault = false,
+  isMyWishesFilterDefault = false,
 }) {
   const { data: session } = useSession();
   const [nameFilter, setName] = useState<string>("");
@@ -36,8 +42,12 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
   const [isMyDoublesFilter, setIsMyDoublesFilter] = useState<boolean>(
     isMyDoublesFilterDefault
   );
+  const [isMyWishesFilter, setIsMyWishesFilter] = useState<boolean>(
+    isMyWishesFilterDefault
+  );
 
   const doublesIdList = cardsOwned || session?.user.cardsOwned || [];
+  const wishesIdList = desiredCards || session?.user.desiredCards || [];
 
   if (isSelectionMode && typeFilter === Type.reverse) {
     setType(undefined);
@@ -55,6 +65,8 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
   const applyFilterBType = ({ type }: Card) => type === typeFilter;
   const applyFilterMyDoubles = ({ id }: Card) =>
     doublesIdList.includes(id as string);
+  const applyFilterMyWishes = ({ id }: Card) =>
+    wishesIdList.includes(id as string);
 
   const removeReverseSuffix = (id: string) => String(id).slice(0, -2);
 
@@ -68,7 +80,7 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
 
     // when filter is double it returns all doubles and removes only '_r' from keys
     // then dedupe because when use has normal and reverse version
-    if (isMyDoublesFilter) {
+    if (isMyDoublesFilter || isMyWishesFilter) {
       const allDoubles = cards.map((card) =>
         card.type === "reverse"
           ? { ...card, id: removeReverseSuffix(card.id as string) }
@@ -87,8 +99,17 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
     if (isMyDoublesFilter) {
       return allCards.filter(applyFilterMyDoubles);
     }
+    if (isMyWishesFilter) {
+      return allCards.filter(applyFilterMyWishes);
+    }
 
-    if (!nameFilter && !rarityFilter && !typeFilter && !isMyDoublesFilter)
+    if (
+      !nameFilter &&
+      !rarityFilter &&
+      !typeFilter &&
+      !isMyDoublesFilter &&
+      !isMyWishesFilter
+    )
       return allCards;
 
     const filteredByName = nameFilter
@@ -108,16 +129,26 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
     setRarity(rarity);
     setType(undefined);
     setIsMyDoublesFilter(false);
+    setIsMyWishesFilter(false);
   };
 
   const setTypeFilter = (type: Type) => {
     setType(type);
     setRarity(undefined);
     setIsMyDoublesFilter(false);
+    setIsMyWishesFilter(false);
   };
 
   const displayMyDoubles = () => {
     setIsMyDoublesFilter(true);
+    setIsMyWishesFilter(false);
+    setType(undefined);
+    setRarity(undefined);
+  };
+
+  const displayMyWishes = () => {
+    setIsMyDoublesFilter(false);
+    setIsMyWishesFilter(true);
     setType(undefined);
     setRarity(undefined);
   };
@@ -126,6 +157,7 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
     setType(undefined);
     setRarity(undefined);
     setIsMyDoublesFilter(false);
+    setIsMyWishesFilter(false);
   };
 
   return {
@@ -138,7 +170,9 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
     typeFilter,
     removeFilter,
     displayMyDoubles,
+    displayMyWishes,
     isMyDoublesFilter,
+    isMyWishesFilter,
   };
 };
 

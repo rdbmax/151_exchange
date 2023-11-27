@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import prisma from "../../../../lib/prisma";
 
 export async function POST(request: Request) {
-  let session, cardsOwned, userUpdated;
+  let session, cardsOwned, userUpdated, cardType;
 
   try {
     session = await getServerSession(authOptions);
@@ -14,17 +14,21 @@ export async function POST(request: Request) {
   }
 
   try {
-    cardsOwned = await request.json();
+    ({ type: cardType, list: cardsOwned } = await request.json());
   } catch (e) {
-    console.log("NO CARDS IN BODY");
+    console.log("CANNOT RETREIVE DATA");
     return new Response("", { status: 400 });
   }
 
-  if (session && cardsOwned) {
+  if (session && cardsOwned && cardType) {
     try {
+      const data = {
+        [cardType === "wishes" ? "desiredCards" : "cardsOwned"]: cardsOwned,
+      };
+
       userUpdated = await prisma.user.update({
         where: { id: session.user.id },
-        data: { cardsOwned },
+        data,
       });
     } catch (e) {
       console.log("CANNOT UPDATE USER");

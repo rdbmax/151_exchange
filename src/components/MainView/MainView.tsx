@@ -9,41 +9,42 @@ import styles from "./mainView.module.css";
 
 type MainViewProps = {
   allCards: CardType[];
-  isSelectionMode?: boolean;
   isPublicView?: boolean;
-  userCards: CardsSelection["userCards"];
-  userCardsSelection: CardsSelection["userCardsSelection"];
-  onCheckCard?: CardsSelection["onCheckCard"];
+  doublesSelection: CardsSelection;
+  wishesSelection: CardsSelection;
 };
 
 export default function MainView({
-  isSelectionMode = false,
   allCards,
-  userCards,
-  userCardsSelection,
-  onCheckCard = () => {},
   isPublicView = false,
+  doublesSelection,
+  wishesSelection,
 }: MainViewProps) {
-  const cardsListFilters = useCardsListFilters({ isSelectionMode });
+  const cardsListFilters = useCardsListFilters({
+    isSelectionMode:
+      doublesSelection.isSelectionMode || wishesSelection.isSelectionMode,
+  });
   const cards = cardsListFilters.applyFilters(allCards);
 
   return [
     <section key="cards" className={styles.cardsSection}>
       <Cards
-        isSelectionMode={isSelectionMode}
         isMyDoublesFilter={cardsListFilters.isMyDoublesFilter}
+        isMyWishesFilter={cardsListFilters.isMyWishesFilter}
         cards={cards}
-        userCards={userCards}
-        userCardsSelection={userCardsSelection}
-        onCheckCard={onCheckCard}
         isPublicView={isPublicView}
+        doublesSelection={doublesSelection}
+        wishesSelection={wishesSelection}
       />
     </section>,
     !isPublicView && (
+      // TODO: wishes here then tests
       <Aside
         key="aside"
         cardsCount={cards.length}
-        isSelectionMode={isSelectionMode}
+        isSelectionMode={
+          doublesSelection.isSelectionMode || wishesSelection.isSelectionMode
+        }
         cardsListFilters={cardsListFilters}
       />
     ),
