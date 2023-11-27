@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
-import clsx from "clsx";
 
-import { Card } from "../../db/all_cards";
+import { Card, Type } from "../../db/all_cards";
 import cards from "../../cards";
 
 import styles from "./card.module.css";
@@ -55,12 +54,12 @@ export default function Card({
       {!isSelectionMode && hasOwningIcons && (hasCard || hasReverseCard) && (
         <div className={styles.cardOwnedContainer}>
           {hasCard && (
-            <div className={styles.cardOwned}>
-              <span>✅</span>
+            <div className={styles.cardOwned} aria-label={card.type}>
+              <span>{card.type[0].toUpperCase()}</span>
             </div>
           )}
           {hasReverseCard && (
-            <div className={clsx(styles.cardOwned, styles.reverseOwned)}>
+            <div className={styles.cardOwned} aria-label={Type.reverse}>
               <span>R</span>
             </div>
           )}
