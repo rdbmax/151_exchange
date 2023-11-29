@@ -34,18 +34,11 @@ export async function POST(request: Request) {
       });
 
       if (userUpdated) {
-        const slug =
-          cardType === "wishes"
-            ? userUpdated.wishesPublicUrl
-            : userUpdated.doublesPublicUrl;
+        const path = `/${
+          cardType === "wishes" ? "souhaits" : "doubles"
+        }/[slug]`;
 
-        if (slug) {
-          const path = `/${
-            cardType === "wishes" ? "souhaits" : "doubles"
-          }/${slug}`;
-
-          revalidatePath(path);
-        }
+        revalidatePath(path, 'page');
       }
     } catch (e) {
       console.log("CANNOT UPDATE USER");
