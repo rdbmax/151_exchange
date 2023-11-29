@@ -10,6 +10,29 @@ type DoublePageProps = {
   params: { slug: string };
 };
 
+// https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration#static-site-generation-getstaticprops
+
+// OK when not so much users with doubles
+// but with a lot, need to only generate when user update doubles list and uncomment next line
+// export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const doublesSlugs = await prisma.user.findMany({
+    where: {
+      doublesPublicUrl: {
+        not: null,
+      },
+    },
+    select: {
+      doublesPublicUrl: true,
+    },
+  });
+
+  return doublesSlugs.map(({ doublesPublicUrl }) => ({
+    slug: doublesPublicUrl,
+  }));
+}
+
 export default async function DoublePage({
   params: { slug },
 }: DoublePageProps) {

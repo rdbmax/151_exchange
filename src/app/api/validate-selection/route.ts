@@ -1,5 +1,7 @@
-import { authOptions } from "@Utils/authOptions";
+import { revalidatePath } from "next/cache";
 import { getServerSession } from "next-auth";
+
+import { authOptions } from "@Utils/authOptions";
 
 import prisma from "../../../../lib/prisma";
 
@@ -30,6 +32,21 @@ export async function POST(request: Request) {
         where: { id: session.user.id },
         data,
       });
+
+      if (userUpdated) {
+        const slug =
+          cardType === "wishes"
+            ? userUpdated.wishesPublicUrl
+            : userUpdated.doublesPublicUrl;
+
+        if (slug) {
+          const path = `/${
+            cardType === "wishes" ? "souhaits" : "doubles"
+          }/${slug}`;
+
+          revalidatePath(path);
+        }
+      }
     } catch (e) {
       console.log("CANNOT UPDATE USER");
       return new Response("", { status: 500 });
