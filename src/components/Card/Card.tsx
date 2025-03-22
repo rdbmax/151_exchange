@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import { Card, Type } from "../../db/all_cards";
+import { type Card, Type } from "../../db/all_cards";
 import cards from "../../cards";
 
 import styles from "./card.module.css";

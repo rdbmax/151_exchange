@@ -1,5 +1,5 @@
 "use client";
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, JSX } from "react";
 import { Modal as BaseModal } from "@mui/base/Modal";
 
 import Button from "@Components/Button/Button";
