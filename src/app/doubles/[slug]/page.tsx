@@ -7,7 +7,7 @@ import CardsWrapper from "./CardsWrapper";
 import styles from "./doublePage.module.css";
 
 type DoublePageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 // https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration#static-site-generation-getstaticprops
@@ -33,9 +33,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function DoublePage({
-  params: { slug },
-}: DoublePageProps) {
+export default async function DoublePage({ params }: DoublePageProps) {
+  const { slug } = await params;
   const user = await prisma.user.findUnique({
     where: {
       doublesPublicUrl: slug,

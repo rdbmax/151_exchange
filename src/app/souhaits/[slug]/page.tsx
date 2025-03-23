@@ -7,7 +7,7 @@ import CardsWrapper from "./CardsWrapper";
 import styles from "./wishesPage.module.css";
 
 type WhishesPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 // https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration#static-site-generation-getstaticprops
@@ -33,9 +33,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function WhishesPage({
-  params: { slug },
-}: WhishesPageProps) {
+export default async function WhishesPage({ params }: WhishesPageProps) {
+  const { slug } = await params;
   const user = await prisma.user.findUnique({
     where: {
       wishesPublicUrl: slug,
