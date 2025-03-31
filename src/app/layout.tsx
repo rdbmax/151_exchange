@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Analytics } from "@vercel/analytics/react";
 
 import { Providers } from "@Components/provider";
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <NuqsAdapter>{children}</NuqsAdapter>
+        </Providers>
         <Analytics />
       </body>
     </html>

@@ -2,6 +2,7 @@
 import * as R from "ramda";
 import { useState, type ChangeEvent } from "react";
 import { useSession } from "next-auth/react";
+import { parseAsString, useQueryState } from "nuqs";
 
 import { type Card, type Rarity, Type } from "@DB/all_cards";
 
@@ -36,7 +37,10 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
   isMyWishesFilterDefault = false,
 }) {
   const { data: session } = useSession();
-  const [nameFilter, setName] = useState<string>("");
+  const [nameFilter, setName] = useQueryState(
+    "name",
+    parseAsString.withDefault("").withOptions({ history: "push" })
+  );
   const [rarityFilter, setRarity] = useState<Rarity>();
   const [typeFilter, setType] = useState<Type>();
   const [isMyDoublesFilter, setIsMyDoublesFilter] = useState<boolean>(
@@ -56,8 +60,9 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
     );
   }
 
-  const setNameFilter = (event: ChangeEvent<HTMLInputElement>): void =>
-    setName(event.target.value);
+  const setNameFilter = (
+    event: ChangeEvent<HTMLInputElement>
+  ): Promise<URLSearchParams> => setName(event.target.value);
 
   const applyFilterByName = ({ name }: Card) =>
     name.toLowerCase().includes(nameFilter.toLowerCase());
