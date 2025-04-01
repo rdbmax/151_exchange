@@ -2,17 +2,17 @@
 import * as R from "ramda";
 import { useState, type ChangeEvent } from "react";
 import { useSession } from "next-auth/react";
-import { parseAsString, useQueryState } from "nuqs";
+import { parseAsString, parseAsStringEnum, useQueryState } from "nuqs";
 
-import { type Card, type Rarity, Type } from "@DB/all_cards";
+import { type Card, Rarity, Type } from "@DB/all_cards";
 
 export type CardsListFilters = {
   nameFilter: string;
   setNameFilter: (event: ChangeEvent<HTMLInputElement>) => void;
   applyFilters: (allCards: Card[]) => Card[];
-  rarityFilter: Rarity | undefined;
+  rarityFilter: Rarity | null;
   setRarityFilter: (rarity: Rarity) => void;
-  typeFilter: Type | undefined;
+  typeFilter: Type | null;
   setTypeFilter: (type: Type) => void;
   removeFilter: VoidFunction;
   displayMyDoubles: VoidFunction;
@@ -41,8 +41,18 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
     "name",
     parseAsString.withDefault("").withOptions({ history: "push" })
   );
-  const [rarityFilter, setRarity] = useState<Rarity>();
-  const [typeFilter, setType] = useState<Type>();
+  const [rarityFilter, setRarity] = useQueryState(
+    "rarity",
+    parseAsStringEnum<Rarity>(Object.values(Rarity)).withOptions({
+      history: "push",
+    })
+  );
+  const [typeFilter, setType] = useQueryState(
+    "type",
+    parseAsStringEnum<Type>(Object.values(Type)).withOptions({
+      history: "push",
+    })
+  );
   const [isMyDoublesFilter, setIsMyDoublesFilter] = useState<boolean>(
     isMyDoublesFilterDefault
   );
@@ -54,7 +64,7 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
   const wishesIdList = desiredCards || session?.user.desiredCards || [];
 
   if (isSelectionMode && typeFilter === Type.reverse) {
-    setType(undefined);
+    setType(null);
     alert(
       "attention: Il est pour le moment impossible de séléctionner les doubles avec le filtre reverse; la séléction des reverse se fait au survol des cartes."
     );
@@ -132,14 +142,14 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
 
   const setRarityFilter = (rarity: Rarity) => {
     setRarity(rarity);
-    setType(undefined);
+    setType(null);
     setIsMyDoublesFilter(false);
     setIsMyWishesFilter(false);
   };
 
   const setTypeFilter = (type: Type) => {
     setType(type);
-    setRarity(undefined);
+    setRarity(null);
     setIsMyDoublesFilter(false);
     setIsMyWishesFilter(false);
   };
@@ -147,20 +157,20 @@ const useCardsListFilters: UseCardsListFilters = function useCardsListFilters({
   const displayMyDoubles = () => {
     setIsMyDoublesFilter(true);
     setIsMyWishesFilter(false);
-    setType(undefined);
-    setRarity(undefined);
+    setType(null);
+    setRarity(null);
   };
 
   const displayMyWishes = () => {
     setIsMyDoublesFilter(false);
     setIsMyWishesFilter(true);
-    setType(undefined);
-    setRarity(undefined);
+    setType(null);
+    setRarity(null);
   };
 
   const removeFilter = () => {
-    setType(undefined);
-    setRarity(undefined);
+    setType(null);
+    setRarity(null);
     setIsMyDoublesFilter(false);
     setIsMyWishesFilter(false);
   };

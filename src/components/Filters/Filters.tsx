@@ -8,9 +8,9 @@ import styles from "./filters.module.css";
 type FiltersProps = {
   onChangeName: (event: ChangeEvent<HTMLInputElement>) => void;
   setFilterType: (filterButton: Type) => void;
-  typeFilter: Type | undefined;
+  typeFilter: Type | null;
   setFilterRarity: (filterButton: Rarity) => void;
-  rarityFilter: Rarity | undefined;
+  rarityFilter: Rarity | null;
   nameFilter: string;
   cardsCount: number;
   removeFilter: VoidFunction;
